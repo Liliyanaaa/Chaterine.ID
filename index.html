@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070707">
+<title>chaterine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+
+<section id="auth">
+  <h1 class="logo big">chaterine</h1>
+  <p class="sub intro">Ngobrol, cari teman, dan simpan video di satu tempat.</p>
+  <div class="card">
+    <div class="seg">
+      <button type="button" data-tab="login" class="on">Masuk</button>
+      <button type="button" data-tab="reg">Daftar</button>
+    </div>
+    <form id="f-login">
+      <input name="username" placeholder="Username" autocomplete="username" required>
+      <input name="password" type="password" placeholder="Password" autocomplete="current-password" required>
+      <button class="btn pink">Masuk</button>
+    </form>
+    <form id="f-reg" hidden>
+      <input name="username" placeholder="Username" autocomplete="username" required>
+      <input name="password" type="password" placeholder="Password (min. 6 karakter)" autocomplete="new-password" required>
+      <input name="name" placeholder="Nama" autocomplete="name" required>
+      <button class="btn vid">
+        <video id="reg-vid" src="https://videotourl.com/videos/1791884903568-c7254efa-ff1e-47d1-b8bc-fc07d85edf2f.mp4" autoplay loop muted playsinline preload="auto"></video>
+        <span>Daftar Akun Baru</span>
+      </button>
+    </form>
+    <p id="auth-msg" class="msg"></p>
+    <div class="or">atau</div>
+    <button type="button" id="b-google" class="btn ghost"><i data-i="google"></i>Masuk dengan Google</button>
+    <button type="button" id="b-tiktok" class="btn ghost"><i data-i="tiktok"></i>Hubungkan TikTok</button>
+  </div>
+</section>
+
+<section id="app" hidden>
+  <section class="page" id="p-home">
+    <div class="top"><span class="logo">chaterine</span></div>
+    <h1 class="hello" id="hello"></h1>
+    <p class="sub">Mau ngapain hari ini?</p>
+    <div class="grid">
+      <button class="fc" data-go="search"><i data-i="search"></i><b>Cari</b><small>Temukan teman lewat username</small></button>
+      <button class="fc" data-go="dl"><i data-i="download"></i><b>Download</b><small>Simpan video TikTok tanpa ribet</small></button>
+      <button class="fc" data-go="ai"><i data-i="ai"></i><b>AI</b><small>Tanya apa saja ke AI Chaterine</small></button>
+      <button class="fc" data-go="chat"><i data-i="chat"></i><b>Chat</b><small>Pesan dienkripsi sebelum disimpan</small></button>
+    </div>
+    <div class="trend">
+      <div class="poster"><i data-i="play"></i></div>
+      <div class="tb">
+        <div class="grow"><b>Sunset di Nusa Penida</b><small>Video trending minggu ini</small></div>
+        <button class="chip pink" id="save-trend">Save</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="p-search" hidden>
+    <h2 class="pg">Cari</h2>
+    <input id="q" type="search" placeholder="Cari username" autocomplete="off">
+    <div id="res"><p class="empty">Ketik username untuk mulai mencari.</p></div>
+  </section>
+
+  <section class="page" id="p-dl" hidden>
+    <h2 class="pg">Download</h2>
+    <p class="sub">Tempel link video TikTok, Reels, atau Shorts.</p>
+    <form id="f-dl">
+      <input id="dl-url" placeholder="https://..." inputmode="url" required>
+      <button class="btn pink">Download</button>
+    </form>
+    <div id="dl-out"></div>
+  </section>
+
+  <section class="page" id="p-ai" hidden>
+    <h2 class="pg">AI Chaterine</h2>
+    <div class="aiw"><iframe id="ai-frame" title="AI Chaterine" allow="clipboard-write; microphone"></iframe></div>
+  </section>
+
+  <section class="page" id="p-chat" hidden>
+    <h2 class="pg">Chat</h2>
+    <div id="chats"></div>
+  </section>
+
+  <section class="page" id="p-me" hidden><div id="prof"></div></section>
+
+  <nav id="nav">
+    <button data-go="home" class="on"><i data-i="home"></i>Beranda</button>
+    <button data-go="search"><i data-i="search"></i>Cari</button>
+    <button data-go="dl"><i data-i="download"></i>Download</button>
+    <button data-go="ai"><i data-i="ai"></i>AI</button>
+    <button data-go="chat"><i data-i="chat"></i>Chat</button>
+    <button data-go="me"><i data-i="user"></i>Profil</button>
+  </nav>
+</section>
+
+</main>
+
+<section id="chat" hidden>
+  <header class="ch">
+    <button class="x" id="ch-back" aria-label="Kembali"><i data-i="back"></i></button>
+    <span class="av" id="cp-av"></span>
+    <div class="grow"><b id="cp-name"></b><span class="lock"><i data-i="lock"></i>E2E Encrypted</span></div>
+  </header>
+  <div id="msgs"></div>
+  <form id="f-msg" autocomplete="off">
+    <input id="msg-in" placeholder="Tulis pesan" required>
+    <button class="send" aria-label="Kirim"><i data-i="send"></i></button>
+  </form>
+</section>
+
+<div id="sheet" hidden>
+  <div class="sh">
+    <div class="shh"><h3 id="sh-title"></h3><button class="x" id="sh-x" aria-label="Tutup"><i data-i="close"></i></button></div>
+    <div id="sh-body"></div>
+  </div>
+</div>
+<div id="toast" hidden></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
